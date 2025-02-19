@@ -64,4 +64,11 @@ public class StudentController {
         System.out.println(student.getLastName());
         return student;
     }
+
+    //spring boot Rest API that handles HTTP PUT Request - deleting the existing resource
+    @DeleteMapping("students/{id}/delete")
+    public String deleteStudent(@PathVariable("id") int studentId) {
+        System.out.println(studentId);
+        return "student delete successfully!";
+    }
 }
