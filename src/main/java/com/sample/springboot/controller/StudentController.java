@@ -33,7 +33,9 @@ public class StudentController {
     //http://localhost:8080/students/1/kamy/nasinza
 
     @GetMapping("students/{id}/{first-name}/{last-name}")
-    public Student studentPathVariable(@PathVariable("id") int studentId, @PathVariable("first-name") String firstName, @PathVariable("last-name") String lastName) {
+    public Student studentPathVariable(@PathVariable("id") int studentId,
+                                       @PathVariable("first-name") String firstName,
+                                       @PathVariable("last-name") String lastName) {
         return new Student(lastName, studentId, firstName);
     }
 
@@ -41,7 +43,9 @@ public class StudentController {
     // http://localhost:8080/students/query?id=1&firstName=emily&lastName=joy
 
     @GetMapping("students/query")
-    public Student studentRequestVariable(@RequestParam int id, @RequestParam String firstName, @RequestParam String lastName) {
+    public Student studentRequestVariable(@RequestParam int id,
+                                          @RequestParam String firstName,
+                                          @RequestParam String lastName) {
         return new Student(lastName, id, firstName);
     }
 
@@ -59,7 +63,8 @@ public class StudentController {
 
     //Spring boot Rest API that handles HTTP PUT Request - updating existing resource
     @PutMapping("students/{id}/update")
-    public Student updateStudent(@RequestBody Student student, @PathVariable("id") int studentId) {
+    public Student updateStudent(@RequestBody Student student,
+                                 @PathVariable("id") int studentId) {
         System.out.println(student.getFirstName());
         System.out.println(student.getLastName());
         return student;
